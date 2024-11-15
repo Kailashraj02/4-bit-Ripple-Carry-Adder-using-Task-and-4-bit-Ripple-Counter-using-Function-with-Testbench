@@ -51,8 +51,11 @@ endmodule
 ```
 module ripple_carry_adder_4bit_tb;
 
+    // Declare inputs to the DUT (Device Under Test)
     reg [3:0] A, B;
     reg Cin;
+    
+    // Declare outputs from the DUT
     wire [3:0] Sum;
     wire Cout;
 
@@ -65,33 +68,41 @@ module ripple_carry_adder_4bit_tb;
         .Cout(Cout)
     );
 
+    // Apply test cases
     initial begin
-        // Test cases
-        A = 4'b0001; B = 4'b0010; Cin = 0;
-        #10;
-        
-        A = 4'b0110; B = 4'b0101; Cin = 0;
-        #10;
-        
-        A = 4'b1111; B = 4'b0001; Cin = 0;
-        #10;
-        
-        A = 4'b1010; B = 4'b1101; Cin = 1;
-        #10;
-        
-        A = 4'b1111; B = 4'b1111; Cin = 1;
+        // Test Case 1
+        A = 4'b0001; B = 4'b0010; Cin = 1'b0;
+        #10; // Wait 10 time units
+
+        // Test Case 2
+        A = 4'b0110; B = 4'b0101; Cin = 1'b0;
         #10;
 
-        $stop;
+        // Test Case 3
+        A = 4'b1111; B = 4'b0001; Cin = 1'b0;
+        #10;
+
+        // Test Case 4
+        A = 4'b1010; B = 4'b1101; Cin = 1'b1;
+        #10;
+
+        // Test Case 5
+        A = 4'b1111; B = 4'b1111; Cin = 1'b1;
+        #10;
+
+        $stop; // End simulation
     end
 
+    // Monitor output changes
     initial begin
-        $monitor("Time = %0t | A = %b | B = %b | Cin = %b | Sum = %b | Cout = %b", $time, A, B, Cin, Sum, Cout);
+        $monitor("Time = %0t | A = %b | B = %b | Cin = %b | Sum = %b | Cout = %b", 
+                 $time, A, B, Cin, Sum, Cout);
     end
 
 endmodule
 ```
 OUTPUT: Ripple carry adder
+![Screenshot 2024-11-15 162628](https://github.com/user-attachments/assets/dc9f1266-e2c0-4eb4-b689-cabb3f83d49f)
 
 // Verilog Code ripple counter
 ```

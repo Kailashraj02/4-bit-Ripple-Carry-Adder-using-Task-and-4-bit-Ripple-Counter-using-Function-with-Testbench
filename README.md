@@ -154,7 +154,8 @@ module ripple_counter_4bit_tb;
 endmodule
 ```
 OUTPUT: ripple counter
-![Uploading Screenshot 2024-11-15 160346.png…]()
+![Screenshot 2024-11-15 160346](https://github.com/user-attachments/assets/65d3cc31-ddcd-413b-9471-a491546f46e1)
+
 
 
 Conclusion:
